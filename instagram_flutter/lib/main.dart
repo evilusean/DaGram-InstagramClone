@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckModeBanner: false,
+      debugShowCheckedModeBanner: false,
       title: 'DaGram Clone',
       theme: ThemeData.dark(),
-      home: Text(title: 'DaGram Day 1'),
+      home: Text('DaGram Day 1'),
     );
   }
 }
