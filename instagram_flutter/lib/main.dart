@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_flutter/utils/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'DaGram Clone',
-      theme: ThemeData.dark(),
-      home: Text('DaGram Day 1'),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: mobileBackgroundColor,
+      ),
+      home: Scaffold(body: Text('DaGram'),
     );
   }
 }
