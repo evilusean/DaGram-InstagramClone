@@ -12,7 +12,10 @@ Add to build gradle to add google firebase to project </br>
 #To make the google-services.json config values accessible to Firebase SDKs, you need the Google services Gradle plugin.
 
 #Add the plugin as a buildscript dependency to your project-level build.gradle file:
-
+flutter pub add cloud_firestore 
+flutter pub add firebase_auth   
+flutter pub add firebase_core   
+flutter pub add firebase_storage #use this to install dependancies
 #Root-level (project-level) Gradle file (<project>/build.gradle):
 buildscript {
   repositories {
