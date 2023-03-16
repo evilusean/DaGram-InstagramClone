@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_flutter/utils/dimensions.dart';
+import 'package:dagram_flutter/utils/dimensions.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   final Widget webScreenLayout;
