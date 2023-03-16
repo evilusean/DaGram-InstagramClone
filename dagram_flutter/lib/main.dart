@@ -1,5 +1,8 @@
-import 'package:dagram_flutter/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:dagram_flutter/responsive/responsive_layout_screen.dart';
+import 'package:dagram_flutter/responsive/web_screen_layout.dart';
+import 'package:dagram_flutter/utils/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: mobileBackgroundColor,
       ),
-      home: Scaffold(body: Text('DaGram Day 2')),
+      home: const ResponsiveLayout(
+        mobileScreenLayout: MobileScreenLayout(),
+        webScreenLayout: WebScreenLayout(),
+      ),
     );
   }
 }
