@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-// NOTE: replace 'NvPY9M9MzFTARQ6M816YAzDJxZ72' with your Firebase auth user id (can be taken from Firebase)
+// NOTE: replace 'NvPY9M9MzFTARQ6M816YAzDJxZ72' with your Firebase auth user id (can be taken from Firebase) photos: k0BUZp7lWvSd572WmP9u users:l8wl1NgusBxpGTuuHz6p
 //will populate data for firebase, only run once or it will duplicate data
 export function seedDatabase(firebase) {
     const users = [
