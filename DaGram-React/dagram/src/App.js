@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //React-router-dom used to redirect to pages
 import { lazy, Suspense } from 'react';
+import * as ROUTES from './constants/routes';
+//Imports all routes constants from routes.js
 
 const Login = lazy(() => import('./pages/login'));
 
@@ -11,9 +13,9 @@ function App() {
   return (
     <Router>
       <Suspense fallback={<p>Loading...</p>}>
-        <Switch>
+        <Routes>
           <Route path="/login" component={Login} />
-        </Switch>
+        </Routes>
       </Suspense>
     </Router>
   )
