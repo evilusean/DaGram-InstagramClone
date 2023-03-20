@@ -21,5 +21,9 @@ export default function Login() {
         document.title = 'Login - Instagram'
     });
     //useEffect works by running on each FIRST render
-    return <p> I Am The Login Page.</p>;
+    return (
+        <div className="container flex mx-auto max-w-screen-md items-center h-screen">
+            <p> Tailwind CSS</p>
+        </div>
+    );
 }
