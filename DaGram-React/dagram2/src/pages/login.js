@@ -23,7 +23,7 @@ export default function Login() {
     //useEffect works by running on each FIRST render
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-            <p> Tailwind CSS test!</p>
+            <p> Tailwind CSS test! </p>
         </div>
     );
 }
