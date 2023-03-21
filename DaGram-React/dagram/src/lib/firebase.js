@@ -1,10 +1,10 @@
-import Firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth'
-//new version of firebase added /compat - fix works
-//import Firebase from 'firebase/compat/app';
-//import 'firebase/compat/firestore';
-//import 'firebase/compat/auth'
+// import Firebase from 'firebase/app';
+// import 'firebase/firestore';
+// import 'firebase/auth'
+// new version of firebase added /compat - fix works
+import Firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth'
 
 //Firebase Config Information
 const config = {

@@ -1,5 +1,5 @@
 import React from 'react';
-//import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import FirebaseContext from './context/firebase';
 import { firebase, FieldValue } from './lib/firebase';
@@ -11,14 +11,25 @@ import { render } from 'react-dom';
 
 //root.render(
 //    <FirebaseContext.Provider value = {{ firebase, FieldValue }}>
-//    <App />,
+//   <App />,
 //    </FirebaseContext.Provider>,
 //);
 
-ReactDOM.render(
-    <FirebaseContext.Provider value={{ firebase, FieldValue }}>
-      <App />
-    </FirebaseContext.Provider>,
-    document.getElementById('root')
-);
+// ReactDOM.render(
+//   <FirebaseContext.Provider value={{ firebase, FieldValue }}>
+//     <React.StrictMode>
+//       <App />
+//     </React.StrictMode>
+//   </FirebaseContext.Provider>,
+//   document.getElementById('root')
+// );
 
+const root = document.getElementById('root') 
+render(
+  <FirebaseContext.Provider value={{ firebase, FieldValue }}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </FirebaseContext.Provider>,
+  root
+);
