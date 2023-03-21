@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // uses history to get user information, had to change from useHistory to useNavigate, useHistory was not working
 import FirebaseContext from '../context/firebase';
 // used to get user information from firebase firestore database
@@ -6,7 +6,7 @@ import { useState, useContext, useEffect } from 'react';
 //use State for storing values in a state
 
 export default function Login() {
-    const history = useHistory();
+    const history = useNavigate();
     const { firebase } = useContext(FirebaseContext);
     // gets information about users, log in, does a user already exist,
     const [emailAddress, SetEmailAddress] = useState('');
@@ -18,7 +18,7 @@ export default function Login() {
     //checks if email or password is empty, throws an error isInvalid if they are
     const handleLogin = () => {};
     useEffect(() => {
-        document.title = 'Login - Instagram'
+        document.title = 'Login - DaGram'
     });
     //useEffect works by running on each FIRST render
     return (
