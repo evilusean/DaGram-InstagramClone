@@ -1,7 +1,8 @@
 {
   "name": "dagram2",
+  "homepage": ".",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,12 +17,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "run-p watch:css react-scripts:start",
-    "build": "run-s build:css react-scripts:dist",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",
-    "react-scripts:start": "timeout /t 1 /nobreak > NUL && react-scripts start",
-    "react-scripts:dist": "react-scripts build",
+    "react-scripts:start": "timeout /t 5 /nobreak > NUL && react-scripts start",
+    "react-scripts:dist":   "react-scripts build",
+    "start": "run-p watch:css react-scripts:start",
+    "build": "run-s build:css react-scripts:dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

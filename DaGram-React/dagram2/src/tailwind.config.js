@@ -1,3 +1,9 @@
+module.exports = {
+    future: {
+      removeDeprecatedGapUtilities: true
+    }
+};
+
 // module.exports = {
 //     future: {
 //       removeDeprecatedGapUtilities: true
@@ -34,18 +40,3 @@
 //       }
 //     }
 //   };
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-  './pages/**/*.{js,ts,jsx,tsx}',
-  './components/**/*.{js,ts,jsx,tsx}',
-  './app/**/*.{js,ts,jsx,tsx}',
-  
-    ],
-  
-    theme: {
-      extend: {},
-    },
-    plugins: [],
-  }

@@ -4,6 +4,7 @@ import FirebaseContext from '../context/firebase';
 // used to get user information from firebase firestore database
 import { useState, useContext, useEffect } from 'react';
 //use State for storing values in a state
+import * as ROUTES from '../constants/routes';
 
 export default function Login() {
     const history = useNavigate();
@@ -19,11 +20,16 @@ export default function Login() {
     const handleLogin = () => {};
     useEffect(() => {
         document.title = 'Login - DaGram'
-    });
+    }, []);
     //useEffect works by running on each FIRST render
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-            <p> Tailwind CSS test! </p>
+            <div className="flex w-3/5">
+                <img src="/images/iphone-with-profile.jpg" alt="Iphone with instagram" />
+            </div>
+            <div className="flex flex-col w-2/5">
+                <p> Form Incoming</p>
+            </div>
         </div>
     );
 }
