@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // uses history to get user information, had to change from useHistory to useNavigate, useHistory was not working
 import FirebaseContext from '../context/firebase';
 // used to get user information from firebase firestore database
@@ -6,7 +6,7 @@ import { useState, useContext, useEffect } from 'react';
 //use State for storing values in a state
 
 export default function Login() {
-    const history = useNavigate();
+    const history = useHistory();
     const { firebase } = useContext(FirebaseContext);
     // gets information about users, log in, does a user already exist,
     const [emailAddress, SetEmailAddress] = useState('');
@@ -23,7 +23,7 @@ export default function Login() {
     //useEffect works by running on each FIRST render
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-            <p> Tailwind CSS</p>
+            <p> Tailwind CSS test!</p>
         </div>
     );
 }

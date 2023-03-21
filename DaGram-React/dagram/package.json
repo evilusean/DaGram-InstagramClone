@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@welldone-software/why-did-you-render": "^6.0.5",
     "date-fns": "^2.16.1",
     "firebase": "^8.2.5",
     "prop-types": "^15.7.2",
@@ -15,7 +14,7 @@
     "react-loader-spinner": "^4.0.0",
     "react-loading-skeleton": "^2.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
@@ -27,12 +26,12 @@
     "tailwindcss": "^2.0.2"
   },
   "scripts": {
+    "start": "run-p watch:css react-scripts:start",
+    "build": "run-s build:css react-scripts:dist",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/app.css --watch",
     "react-scripts:start": "timeout /t 1 /nobreak > NUL && react-scripts start",
     "react-scripts:dist": "react-scripts build",
-    "start": "run-p watch:css react-scripts:start",
-    "build": "run-s build:css react-scripts:dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -49,4 +48,3 @@
     ]
   }
 }
-
