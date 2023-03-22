@@ -528,6 +528,9 @@ video {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -572,6 +575,9 @@ video {
 }
 .h-16 {
   height: 4rem;
+}
+.h-2 {
+  height: 0.5rem;
 }
 .h-4 {
   height: 1rem;
@@ -752,6 +758,9 @@ video {
 }
 .opacity-25 {
   opacity: 0.25;
+}
+.opacity-50 {
+  opacity: 0.5;
 }
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
