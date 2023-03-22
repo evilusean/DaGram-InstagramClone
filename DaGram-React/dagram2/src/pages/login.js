@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 // uses history to get user information, had to change from useHistory to useNavigate, useHistory was not working
 import FirebaseContext from '../context/firebase';
 // used to get user information from firebase firestore database
-import { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 //use State for storing values in a state
 import * as ROUTES from '../constants/routes';
 

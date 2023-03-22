@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //React-router-dom used to redirect to pages, switch was react v17, use Routes for V18
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import * as ROUTES from './constants/routes';
 //Imports all routes constants from routes.js
 //lazy allows you to split big bundle into chunks, codesplit is dynamically loaded
