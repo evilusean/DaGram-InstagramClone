@@ -27,3 +27,5 @@ firebase_core
 firebase_auth
 cloud_firestore
 firebase_storage
+Adding Firebase to iOS without Xcode on windows:
+https://stackoverflow.com/questions/56407299/where-to-save-googleservice-info-plist-in-flutter-without-xcode
