@@ -19,3 +19,11 @@ samples, guidance on mobile development, and a full API reference.
 to test:
 flutter emulators --launch Pixel_4_API_33
 run -> run without debugging
+
+test chrome:
+flutter run -d chrome 
+
+firebase_core
+firebase_auth
+cloud_firestore
+firebase_storage
