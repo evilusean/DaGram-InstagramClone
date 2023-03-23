@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'responsive/responsive_layout_screen.dart';
+import 'package:dagram_flutter/utils/colors.dart';
+import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:dagram_flutter/responsive/web_screen_layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +17,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'DaGram-Instagram Clone',
-      home: Text('DaGram Day 5'),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: mobileBackgroundColor,
+      ),
+      home: const ResponsiveLayout(
+        mobileScreenLayout: MobileScreenLayout(),
+         webScreenLayout: WebScreenLayout(),
+        ),
     );
   }
 }
