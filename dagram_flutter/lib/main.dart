@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'responsive/responsive_layout_screen.dart';
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
 import 'package:dagram_flutter/responsive/web_screen_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyBpg7rGl44ZsARAZm2ypebZvSWnsYyiWKc", 
+        appId: "1:168949389719:web:7f1fc26a7c14a096248cd2", 
+        messagingSenderId: "168949389719", 
+        projectId: "dagram-flutter",
+        storageBucket: "dagram-flutter.appspot.com",
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
   runApp(const MyApp());
 }
 
