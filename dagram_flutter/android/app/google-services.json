@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "168949389719",
+    "project_id": "dagram-flutter",
+    "storage_bucket": "dagram-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168949389719:android:9dc4e5c8574fda26248cd2",
+        "android_client_info": {
+          "package_name": "com.example.dagram_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168949389719-ipsj5e2oip9e2112mq5iq3r327bangkv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD33pOk7qTXgjuqFoek2fU5zPm1qOLGsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168949389719-ipsj5e2oip9e2112mq5iq3r327bangkv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "168949389719-449mc7eg2sr08amqtna7ju25eo62ufp2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dagramFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
