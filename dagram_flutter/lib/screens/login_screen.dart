@@ -43,10 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
                 ),
-              // text field for password
               const SizedBox(
                 height: 24,
               ),
+              // text field for password
               TextFieldInput(
                 hintText: 'Enter your Password.',
                 textInputType: TextInputType.text,
@@ -57,7 +57,44 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               //button login
+              Container(
+                child: const Text('Log In'),
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: const ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                    Radius.circular(4),
+                    ),
+                  ),
+                  color: blueColor
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Flexible(child: Container(), flex: 2),
               // signup
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Text("Don't have an account?"),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                    ),
+                  ),
+                  Container(
+                    child: const Text(
+                      "Sign Up.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold, 
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],)
         ),
       ),
