@@ -7,6 +7,7 @@ Still can not emulate on iOS/Android, haxm issue with android studio 1 1/2 days 
 HTML chrome/Windows works for debugging now </br>
 Emulation works, requires haxm 7.6.5 NOT 7.8 to work with flutter/android studio emulation, manual install to fix </br>
 To get access to emulator, first run emulator and Run -> Run without Debugging </br>
+I do not use social media, I make my own; ME-diy-a. </br>
 
 Add to build gradle to add google firebase to project </br>
 #To make the google-services.json config values accessible to Firebase SDKs, you need the Google services Gradle plugin.
