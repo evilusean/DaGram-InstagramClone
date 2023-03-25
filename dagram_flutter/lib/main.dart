@@ -6,6 +6,7 @@ import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
 import 'package:dagram_flutter/responsive/web_screen_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dagram_flutter/screens/login_screen.dart';
 
 
 void main() async {
@@ -38,10 +39,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: mobileBackgroundColor,
       ),
-      home: const ResponsiveLayout(
-        mobileScreenLayout: MobileScreenLayout(),
-         webScreenLayout: WebScreenLayout(),
-        ),
+      // home: const ResponsiveLayout(
+      //   mobileScreenLayout: MobileScreenLayout(),
+      //    webScreenLayout: WebScreenLayout(),
+      //   ),
+      home: LoginScreen(),
     );
   }
 }
