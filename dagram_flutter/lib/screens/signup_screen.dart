@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:dagram_flutter/resources/auth_methods.dart';
+import 'package:dagram_flutter/utils/utils.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:typed_data';
 
 
 class SignupScreen extends StatefulWidget {
@@ -17,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
+  Uint8List? _image;
 
   @override
   void dispose() {
@@ -26,6 +30,14 @@ class _SignupScreenState extends State<SignupScreen> {
     _usernameController.dispose();
     _bioController.dispose();
   }
+
+  void selectImage() async {
+    Uint8List im = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = im;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +57,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(height: 32),
                 // circular widget to accept and show selected file
                 Stack(children: [
-                  CircleAvatar(
+                  _image != null
+                  ? CircleAvatar(
+                    radius: 64,
+                    backgroundImage: MemoryImage(_image!),
+                  )
+                  : const CircleAvatar(
                     radius: 64,
                     backgroundImage: NetworkImage(
                       'https://images.unsplash.com/photo-1548222606-6c4f581fd09d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
@@ -55,7 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     bottom: -10,
                     left: 80,
                     child: IconButton(
-                      onPressed: () {}, 
+                      onPressed: selectImage, 
                       icon: const Icon(
                         Icons.add_a_photo,
                         ),
