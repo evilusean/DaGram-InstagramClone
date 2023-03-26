@@ -2,6 +2,8 @@ import 'package:dagram_flutter/widgets/text_field_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dagram_flutter/utils/colors.dart';
+import 'package:dagram_flutter/resources/auth_methods.dart';
+
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen ({ Key? key}) : super(key: key);
@@ -102,20 +104,31 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               //button login
-              Container(
-                child: const Text('Log In'),
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: const ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                    Radius.circular(4),
+              InkWell(
+                onTap: () async {
+                  String res = await AuthMethods().signUpUser(
+                    email: _emailController.text, 
+                    password: _passwordController.text, 
+                    username: _usernameController.text, 
+                    bio: _bioController.text
+                    );
+                    print(res);
+                },
+                child: Container(
+                  child: const Text('Log In'),
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: const ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                      Radius.circular(4),
                     ),
                   ),
                   color: blueColor
                 ),
               ),
+            ),
               const SizedBox(
                 height: 12,
               ),
