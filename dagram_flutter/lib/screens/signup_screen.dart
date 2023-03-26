@@ -115,7 +115,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     print(res);
                 },
                 child: Container(
-                  child: const Text('Log In'),
+                  child: const Text('Sign Up'),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
