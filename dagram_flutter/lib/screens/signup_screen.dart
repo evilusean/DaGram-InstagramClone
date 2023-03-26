@@ -65,7 +65,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   : const CircleAvatar(
                     radius: 64,
                     backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1548222606-6c4f581fd09d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+                      'https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/default.png'
                     ),
                   ),
                   Positioned(
