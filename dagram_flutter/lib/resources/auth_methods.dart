@@ -36,20 +36,30 @@ class AuthMethods {
             'following': [],
             'photoUrl': photoUrl,
           });
-          //alternative add user method-comment out one
-          // await _firestore.collection('users').add({
-          //   "username": username,
-          //   "uid": cred.user!.uid,
-          //   "email": email,
-          //   "bio": bio,
-          //   'followers': [],
-          //   'following': [],
-          // });
           res = "Success!";
         }
       } catch(err) {
         res = err.toString();
       }
       return res;
+  }
+  // Logging User in
+  Future<String> loginUser({
+    required String email,
+    required String password,
+  }) async {
+    String res = "An Error Occured.";
+
+    try {
+      if(email.isNotEmpty || password.isNotEmpty) {
+        await _auth.signInWithEmailAndPassword(email: email, password: password);
+        res = "Success!";
+      } else (
+        res = "Please fill in all fields required.";
+      )
+    } catch(err) {
+      res = err.toString();
+    }
+    return res;
   }
 } 
