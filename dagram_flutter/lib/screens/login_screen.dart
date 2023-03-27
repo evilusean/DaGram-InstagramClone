@@ -4,6 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:dagram_flutter/resources/auth_methods.dart';
 import 'package:dagram_flutter/utils/utils.dart';
+import 'package:dagram_flutter/screens/signup_screen.dart';
+import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:dagram_flutter/responsive/web_screen_layout.dart';
+import 'package:dagram_flutter/responsive/responsive_layout_screen.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen ({ Key? key}) : super(key: key);
@@ -34,13 +39,27 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       if(res == "Success!"){
-
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const ResponsiveLayout(
+          mobileScreenLayout: MobileScreenLayout(),
+          webScreenLayout: WebScreenLayout(),
+            ),
+          ),
+        );
       } else {
         showSnackBar(res, context);
       }
       setState(() {
         _isLoading = false;
     });
+  }
+
+  void navigateToSignup() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SignupScreen(),
+      ),
+    );
   }
 
   @override
@@ -85,7 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                   child: _isLoading 
                   ? const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
                     ) 
                   : const Text('Log In'),
                   width: double.infinity,
@@ -115,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: navigateToSignup,
                   child: Container(
                     child: const Text(
                       "Sign Up.",

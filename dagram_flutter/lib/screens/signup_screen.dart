@@ -1,3 +1,4 @@
+import 'package:dagram_flutter/responsive/responsive_layout_screen.dart';
 import 'package:dagram_flutter/widgets/text_field_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,6 +7,9 @@ import 'package:dagram_flutter/resources/auth_methods.dart';
 import 'package:dagram_flutter/utils/utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
+import 'package:dagram_flutter/screens/login_screen.dart';
+import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:dagram_flutter/responsive/web_screen_layout.dart';
 
 
 class SignupScreen extends StatefulWidget {
@@ -45,10 +49,26 @@ class _SignupScreenState extends State<SignupScreen> {
       );
       if(res != 'Success!') {
         showSnackBar(res, context);
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const ResponsiveLayout(
+          mobileScreenLayout: MobileScreenLayout(),
+          webScreenLayout: WebScreenLayout(),
+            ),
+          ),
+        );
       }
       setState((){
         _isLoading = false;
     });
+  }
+
+  void navigateToLogin() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+      ),
+    );
   }
 
   void selectImage() async {
@@ -173,16 +193,16 @@ class _SignupScreenState extends State<SignupScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text("Don't have an account?"),
+                    child: Text("Already have an account?"),
                     padding: const EdgeInsets.symmetric(
                       vertical: 8,
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: navigateToLogin,
                   child: Container(
                     child: const Text(
-                      "Sign Up.",
+                      "Login.",
                       style: TextStyle(
                         fontWeight: FontWeight.bold, 
                       ),
