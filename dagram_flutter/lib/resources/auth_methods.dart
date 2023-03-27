@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:typed_data';
+import 'package:dagram_flutter/resources/storage_methods.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -21,6 +22,10 @@ class AuthMethods {
           UserCredential cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
           print(cred.user!.uid);
+
+          String photoUrl = await StorageMethods()
+            .uploadImageToStorage('profilePics', file, false);
+
           // Add User to Firestore database
           await _firestore.collection('users').doc(cred.user!.uid).set({
             "username": username,
@@ -29,6 +34,7 @@ class AuthMethods {
             "bio": bio,
             'followers': [],
             'following': [],
+            'photoUrl': photoUrl,
           });
           //alternative add user method-comment out one
           // await _firestore.collection('users').add({
@@ -46,4 +52,4 @@ class AuthMethods {
       }
       return res;
   }
-}
+} 
