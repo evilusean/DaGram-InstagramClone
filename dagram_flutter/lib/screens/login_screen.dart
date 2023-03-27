@@ -83,7 +83,11 @@ class _LoginScreenState extends State<LoginScreen> {
               InkWell(
                 onTap: loginUser,
                 child: Container(
-                  child: const Text('Log In'),
+                  child: _isLoading 
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    ) 
+                  : const Text('Log In'),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),

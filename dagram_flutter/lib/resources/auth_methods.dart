@@ -55,8 +55,7 @@ class AuthMethods {
         await _auth.signInWithEmailAndPassword(email: email, password: password);
         res = "Success!";
       } else (
-        res = "Please fill in all fields required.";
-      )
+        res = "Please fill in all fields required.");
     } catch(err) {
       res = err.toString();
     }
