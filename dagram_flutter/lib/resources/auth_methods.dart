@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:typed_data';
 import 'package:dagram_flutter/resources/storage_methods.dart';
+import 'package:dagram_flutter/models/user.dart' as model;
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -27,15 +28,19 @@ class AuthMethods {
             .uploadImageToStorage('profilePics', file, false);
 
           // Add User to Firestore database
-          await _firestore.collection('users').doc(cred.user!.uid).set({
-            "username": username,
-            "uid": cred.user!.uid,
-            "email": email,
-            "bio": bio,
-            'followers': [],
-            'following': [],
-            'photoUrl': photoUrl,
-          });
+
+          model.User user = model.User(
+            username: username,
+            uid: cred.user!.uid,
+            email: email,
+            bio: bio,
+            followers: [],
+            following: [],
+            photoUrl: photoUrl,
+          );
+
+          await _firestore.collection('users').doc(cred.user!.uid).set(user.toJson(),);
+
           res = "Success!";
         }
       } catch(err) {
