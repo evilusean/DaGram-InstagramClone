@@ -1,6 +1,7 @@
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:dagram_flutter/utils/global_variables.dart';
 
 class MobileScreenLayout extends StatefulWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);
@@ -38,13 +39,7 @@ class MobileScreenLayout extends StatefulWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        children: [
-          Text('feed'),
-          Text('search'),
-          Text('add posts'),
-          Text('notification'),
-          Text('profile'),
-        ],
+        children: homeScreenItems,
         physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: onPageChanged,
