@@ -25,16 +25,58 @@ class _AddPostScreenState extends State<AddPostScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {},
       ),
-      title: const Text('Post To'),
+      title: const Text('Post Update'),
       centerTitle: false,
       actions: [
         TextButton(onPressed: () {}, child: const Text('Post', style: TextStyle(
           color: Colors.blueAccent,
           fontWeight: FontWeight.bold,
           fontSize: 16,
-        ),),)
+        ),
+      ),
+      )
       ],
     ),
+    body: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(
+                'https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/anderson-rian-P9q5aGTt3FE-unsplash.jpg'
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width*0.3,
+              child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Write a CapSean...(No Cap)',
+                  border: InputBorder.none,
+                ),
+                maxLines: 8,
+              ),
+            ),
+            SizedBox(
+              height: 45,
+              width: 45,
+              child: AspectRatio(
+                aspectRatio: 487/451,
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                     image: NetworkImage('https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/anderson-rian-P9q5aGTt3FE-unsplash.jpg'), 
+                    fit: BoxFit.fill,
+                    alignment: FractionalOffset.topCenter,
+                    )
+                  )
+                ),
+              )
+            )
+          ],
+        )
+      ],)
     );
   }
 }
