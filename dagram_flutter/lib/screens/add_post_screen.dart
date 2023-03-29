@@ -125,7 +125,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
           backgroundColor: mobileBackgroundColor,
           leading: IconButton(
            icon: const Icon(Icons.arrow_back),
-           onPressed: () {},
+           onPressed: clearImage,
       ),
       title: const Text('Post Update'),
       centerTitle: false,
