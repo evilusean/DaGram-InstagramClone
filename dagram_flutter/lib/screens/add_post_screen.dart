@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:dagram_flutter/models/user.dart';
 import 'package:dagram_flutter/providers/user_provider.dart';
+import 'package:dagram_flutter/resources/firestore_methods.dart';
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:dagram_flutter/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +20,27 @@ class _AddPostScreenState extends State<AddPostScreen> {
   Uint8List? _file;
   final TextEditingController _descriptionController = TextEditingController();
 
-  void postImage() {
-
+  void postImage(
+    String uid,
+    String username,
+    String profImage,
+  ) async {
+    try {
+      String res = await FirestoreMethods().uploadPost(
+        _descriptionController.text, 
+        _file!, 
+        uid, 
+        username, 
+        profImage
+      );
+      if (res == "Success!") {
+        showSnackBar('Posted!', context);
+      } else {
+        showSnackBar(res, context);
+      }
+    } catch(e) {
+      showSnackBar(e.toString(), context);
+    }
   }
 
   _selectImage(BuildContext context) async {
@@ -94,7 +114,11 @@ class _AddPostScreenState extends State<AddPostScreen> {
       title: const Text('Post Update'),
       centerTitle: false,
       actions: [
-        TextButton(onPressed: postImage, 
+        TextButton(onPressed: () => postImage(
+          user.uid, 
+          user.username, 
+          user.photoUrl,
+        ),
         child: const Text(
           'Post', 
           style: TextStyle(
