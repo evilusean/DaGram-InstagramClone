@@ -19,6 +19,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
   Uint8List? _file;
   final TextEditingController _descriptionController = TextEditingController();
 
+  void postImage() {
+
+  }
+
   _selectImage(BuildContext context) async {
     return showDialog(context: context, builder: (context) {
       return SimpleDialog(
@@ -63,6 +67,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _descriptionController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     final User user = Provider.of<UserProvider>(context).getUser;
@@ -84,7 +94,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
       title: const Text('Post Update'),
       centerTitle: false,
       actions: [
-        TextButton(onPressed: () {}, child: const Text('Post', style: TextStyle(
+        TextButton(onPressed: postImage, 
+        child: const Text(
+          'Post', 
+          style: TextStyle(
           color: Colors.blueAccent,
           fontWeight: FontWeight.bold,
           fontSize: 16,
