@@ -1,5 +1,6 @@
 import "package:dagram_flutter/models/user.dart";
 import "package:dagram_flutter/providers/user_provider.dart";
+import "package:dagram_flutter/resources/firestore_methods.dart";
 import "package:dagram_flutter/utils/colors.dart";
 import "package:dagram_flutter/widgets/like_animation.dart";
 import "package:flutter/material.dart";
@@ -88,7 +89,12 @@ class _PostCardState extends State<PostCard> {
             ),
             //Image SectSean
             GestureDetector(
-              onDoubleTap: () {
+              onDoubleTap: () async {
+                await FirestoreMethods().likePost(
+                  widget.snap['postId'],
+                  user.uid,
+                  widget.snap['likes']
+                );
                 setState(() {
                   isLikeAnimating = true;
                 });
