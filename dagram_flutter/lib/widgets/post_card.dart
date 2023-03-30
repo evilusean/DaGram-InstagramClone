@@ -80,6 +80,98 @@ class PostCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+            // Like Comment 
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {}, 
+                  icon: const Icon(
+                    Icons.favorite, 
+                    color: Colors.red,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {}, 
+                  icon: const Icon(
+                    Icons.comment_outlined,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {}, 
+                  icon: const Icon(
+                    Icons.send,
+                  ),
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.bookmark_border),
+                      onPressed: () {},
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            //COMMENTS AND DESCRIPTSEAN
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DefaultTextStyle(
+                    style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      fontWeight: FontWeight.w800
+                      ),
+                    child: Text(
+                      '123 likes',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.only(top: 8,
+                    ),
+                    child: RichText(
+                      text: TextSpan(
+                        style: const TextStyle(color: primaryColor),
+                        children: [
+                          TextSpan(
+                            text: 'username',
+                            style: const TextStyle(fontWeight: FontWeight.bold,),
+                          ),
+                          TextSpan(
+                            text: '   lmao bottom Text ',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Text('View all 200 comments', style: const TextStyle(
+                        fontSize: 16,
+                        color: secondaryColor
+                      ),
+                    ),
+                    ),
+                  ),
+                  Container(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Text('29/03/2023', style: const TextStyle(
+                        fontSize: 16,
+                        color: secondaryColor
+                      ),
+                    ),
+                    ),
+                ],
+              ),
+            ),
           ],
         ),
     );
