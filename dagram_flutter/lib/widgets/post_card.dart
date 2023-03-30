@@ -1,6 +1,10 @@
+import "package:dagram_flutter/models/user.dart";
+import "package:dagram_flutter/providers/user_provider.dart";
 import "package:dagram_flutter/utils/colors.dart";
+import "package:dagram_flutter/widgets/like_animation.dart";
 import "package:flutter/material.dart";
 import "package:intl/intl.dart";
+import "package:provider/provider.dart";
 
 class PostCard extends StatelessWidget {
   final snap;
@@ -8,6 +12,7 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User user=Provider.of<UserProvider>(context).getUser;
     return Container(
       color: mobileBackgroundColor,
       padding: const EdgeInsets.symmetric(
@@ -85,11 +90,17 @@ class PostCard extends StatelessWidget {
             // Like Comment 
             Row(
               children: [
-                IconButton(
-                  onPressed: () {}, 
-                  icon: const Icon(
-                    Icons.favorite, 
-                    color: Colors.red,
+                LikeAnimation(
+                  isAnimating: snap['likes'].contains(user.uid),
+                  smallLike: true,
+                  onEnd: null,
+                  duration: const Duration(milliseconds: 150),
+                  child: IconButton(
+                    onPressed: () {}, 
+                    icon: const Icon(
+                      Icons.favorite, 
+                      color: Colors.red,
+                    ),
                   ),
                 ),
                 IconButton(
@@ -146,7 +157,7 @@ class PostCard extends StatelessWidget {
                             style: const TextStyle(fontWeight: FontWeight.bold,),
                           ),
                           TextSpan(
-                            text: snap['description'],
+                            text: ' ${snap['description']}',
                           ),
                         ],
                       ),
