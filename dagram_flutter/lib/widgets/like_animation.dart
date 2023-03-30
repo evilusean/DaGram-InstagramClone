@@ -6,14 +6,14 @@ class LikeAnimation extends StatefulWidget {
   final Duration duration;
   final VoidCallback? onEnd;
   final bool smallLike;
-  const LikeAnimation({ 
+  const LikeAnimation({
     Key? key,
     required this.child,
     required this.isAnimating,
-    required this.duration = const Duration(milliseconds: 150),
-    required this.onEnd,
-    required this.smallLike,
-    }) : super(key: key);
+    this.duration = const Duration(milliseconds: 150),
+    this.onEnd,
+    this.smallLike = false,
+  }) : super(key: key);
 
 
   @override
