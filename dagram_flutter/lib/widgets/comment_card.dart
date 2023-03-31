@@ -1,4 +1,7 @@
+import 'package:dagram_flutter/models/user.dart';
+import 'package:dagram_flutter/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CommentCard extends StatefulWidget {
   CommentCard({Key? key}) : super(key:key);
@@ -10,6 +13,8 @@ class CommentCard extends StatefulWidget {
 class _CommentCardState extends State<CommentCard> {
   @override
   Widget build(BuildContext context) {
+
+    final User user = Provider.of<UserProvider>(context).getUser;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16,),
       child: Row(
