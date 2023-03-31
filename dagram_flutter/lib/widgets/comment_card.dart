@@ -1,68 +1,70 @@
-import 'package:dagram_flutter/models/user.dart';
-import 'package:dagram_flutter/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
-class CommentCard extends StatefulWidget {
-  CommentCard({Key? key}) : super(key:key);
+class CommentCard extends StatelessWidget {
+  final snap;
+  const CommentCard({Key? key, required this.snap}) : super(key: key);
 
-  @override
-  _CommentCardState createState() => _CommentCardState();
-}
-
-class _CommentCardState extends State<CommentCard> {
   @override
   Widget build(BuildContext context) {
 
-    final User user = Provider.of<UserProvider>(context).getUser;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16,),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       child: Row(
         children: [
-         CircleAvatar(
-          backgroundImage: NetworkImage('https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/anderson-rian-P9q5aGTt3FE-unsplash.jpg',
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+              // snap.data()['profilePic'],
+              snap['profilePic'],
+            ),
+            radius: 18,
           ),
-         radius: 18,
-         ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16,),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RichText(text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'username',
-                      style: const TextStyle(fontWeight: FontWeight.bold,),
-                    ),
-                    TextSpan(
-                      text: 'random inscriptsean needed',
-                    ),
-                  ],
-                  ),
-                ),
-                Padding(padding: const EdgeInsets.only(top:4),
-                  child: Text(
-                    '30/03/2023', 
-                    style: TextStyle(
-                      fontSize: 12, 
-                      fontWeight: FontWeight.w400,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          // text: snap.data()['name'],
+                          text: snap['name'],
+                          style: const TextStyle(fontWeight: FontWeight.bold,)
+                        ),
+                        TextSpan(
+                          // text: ' ${snap.data()['text']}',
+                          text: ' ${snap['text']}',
+                        ),
+                      ],
                     ),
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      DateFormat.yMMMd().format(
+                        // snap.data()['datePublished'].toDate(),
+                        snap['datePublished'].toDate(),
+                      ),
+                      style: const TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.w400,),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: const Icon(Icons.favorite, size: 16),
-        ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Icon(
+              Icons.favorite,
+              size: 16,
+            ),
+          )
         ],
       ),
     );
   }
-
 }
