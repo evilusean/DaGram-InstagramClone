@@ -30,7 +30,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     backgroundImage: NetworkImage(
                       'https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/anderson-rian-P9q5aGTt3FE-unsplash.jpg',
                     ),
+                    radius: 40,
                   ),
+                  Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        buildStatColumn(20, "posts"),
+                        buildStatColumn(666, "followers"),
+                        buildStatColumn(888, "following"),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ],
@@ -38,6 +51,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         ],
       ),
+    );
+  }
+  Column buildStatColumn (int num, String label) {
+    return Column (
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          num.toString(), 
+          style: const TextStyle(
+            fontSize: 18, 
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 4),
+          child: Text(
+            label, 
+            style: const TextStyle(
+              fontSize: 15, 
+              fontWeight: FontWeight.w400,
+              color: Colors.grey,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
