@@ -1,6 +1,8 @@
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/follow_button.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({ Key? key }) : super(key: key);
 
@@ -34,17 +36,54 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Expanded(
                     flex: 1,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    child: Column(
                       children: [
-                        buildStatColumn(20, "posts"),
-                        buildStatColumn(666, "followers"),
-                        buildStatColumn(888, "following"),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            buildStatColumn(20, "posts"),
+                            buildStatColumn(666, "followers"),
+                            buildStatColumn(888, "following"),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            FollowButton(
+                              text: 'Edit Profile',
+                              backgroundColor: mobileBackgroundColor,
+                              textColor: primaryColor,
+                              borderColor: Colors.grey,
+                              function: () {},
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(
+                  top: 15,
+                ),
+                child: Text(
+                  'username', 
+                  style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(
+                  top: 1,
+                ),
+                child: Text(
+                  'DescriptSean', 
+                ),
               ),
             ],
           ),
