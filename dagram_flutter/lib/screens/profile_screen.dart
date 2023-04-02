@@ -153,6 +153,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         const Divider(),
+        FutureBuilder(
+          future: FirebaseFirestore.instance
+          .collection('posts')
+          .where('uid', isEqualTo: widget.uid)
+          .get(),
+          builder: (context, snapshot) {
+            if(snapshot.connectionState ==  ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator(),
+              );
+            }
+          },
+          )
         ],
       ),
     );
