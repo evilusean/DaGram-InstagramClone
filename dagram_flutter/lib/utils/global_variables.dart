@@ -1,15 +1,17 @@
 import 'package:dagram_flutter/screens/feed_screen.dart';
 import 'package:dagram_flutter/screens/profile_screen.dart';
 import 'package:dagram_flutter/screens/search_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:dagram_flutter/screens/add_post_screen.dart';
 
 const webScreenSize = 600;
 
-const homeScreenItems = [
-  FeedScreen(),
-  SearchScreen(),
-  AddPostScreen(),
-  Text('notification'),
-  ProfileScreen(),
+List<Widget> homeScreenItems = [
+  const FeedScreen(),
+  const SearchScreen(),
+  const AddPostScreen(),
+  const Text('notification'),
+  ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
 ];
