@@ -19,7 +19,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   int postLen = 0;
   int followers = 0;
   int following = 0;
-
+  bool isFollowing = false;
+  bool isLoading =  false;
 
   @override
   void initState() {
@@ -28,6 +29,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   getData() async {
+    setState(() {
+      isLoading = true;
+    });
     try {
       var userSnap = await FirebaseFirestore.instance
       .collection('users')
@@ -52,11 +56,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } catch(e) {
       print(e.toString);
     }
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return isLoading ? const Center(child: CircularProgressIndicator(),) : Scaffold(
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
         title: Text(
@@ -95,13 +102,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            FollowButton(
+                            FirebaseAuth.instance.currentUser!.uid == widget.uid? FollowButton(
                               text: 'Edit Profile',
                               backgroundColor: mobileBackgroundColor,
                               textColor: primaryColor,
                               borderColor: Colors.grey,
                               function: () {},
-                            ),
+                            ): isFollowing ? FollowButton(
+                              text: 'Unfollow',
+                              backgroundColor: Colors.white,
+                              textColor: Colors.black,
+                              borderColor: Colors.grey,
+                              function: () {},
+                            ): FollowButton(
+                              text: 'Follow',
+                              backgroundColor: Colors.blue,
+                              textColor: Colors.white,
+                              borderColor: Colors.blue,
+                              function: () {},
+                            )
                           ],
                         ),
                       ],
