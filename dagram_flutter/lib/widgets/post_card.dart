@@ -11,6 +11,8 @@ import "package:flutter/material.dart";
 import "package:intl/intl.dart";
 import "package:provider/provider.dart";
 
+import "../utils/global_variables.dart";
+
 class PostCard extends StatefulWidget {
   final snap;
   const PostCard({Key? key, required this.snap,}) : super(key: key);
@@ -45,7 +47,12 @@ class _PostCardState extends State<PostCard> {
   Widget build(BuildContext context) {
     final User user=Provider.of<UserProvider>(context).getUser;
     return Container(
-      color: mobileBackgroundColor,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: MediaQuery.of(context).size.width > webScreenSize ? secondaryColor : mobileBackgroundColor,
+        ),
+      color: MediaQuery.of(context).size.width > webScreenSize ? webBackgroundColor :  mobileBackgroundColor,
+      ),
       padding: const EdgeInsets.symmetric(
         vertical: 8.0
         ),

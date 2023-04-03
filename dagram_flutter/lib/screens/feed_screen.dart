@@ -14,8 +14,10 @@ class FeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+      appBar: MediaQuery.of(context).size.width > webScreenSize 
+      ? null
+      : AppBar(
+        backgroundColor: MediaQuery.of(context).size.width > webScreenSize ? webBackgroundColor : mobileBackgroundColor,
         centerTitle: false,
         title: SvgPicture.asset('assets/DaGram.svg', 
         color: primaryColor, height: 32,
@@ -39,9 +41,14 @@ class FeedScreen extends StatelessWidget {
           }
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index) => PostCard(
-              snap: snapshot.data!.docs[index].data(),
-          ),
+            itemBuilder: (context, index) => Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width > webScreenSize ? MediaQuery.of(context).size.width * 0.3: 0,
+              ),
+              child: PostCard(
+                snap: snapshot.data!.docs[index].data(),
+                      ),
+            ),
           );
         }
       ),
