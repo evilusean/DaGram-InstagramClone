@@ -111,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               textColor: primaryColor,
                               borderColor: Colors.grey,
                               function: () async {
-                                await AuthMethods.().signOut();
+                                await AuthMethods().signOut();
                                 Navigator.of(context)
                                     .pushReplacement(
                                   MaterialPageRoute(

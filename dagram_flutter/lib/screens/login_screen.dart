@@ -9,6 +9,8 @@ import 'package:dagram_flutter/responsive/mobile_screen_layout.dart';
 import 'package:dagram_flutter/responsive/web_screen_layout.dart';
 import 'package:dagram_flutter/responsive/responsive_layout_screen.dart';
 
+import '../utils/global_variables.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen ({ Key? key}) : super(key: key);
@@ -67,7 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: MediaQuery.of(context).size.width > webScreenSize? 
+          EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width /3)
+          : const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
