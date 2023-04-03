@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dagram_flutter/resources/firestore_methods.dart';
 import 'package:dagram_flutter/utils/colors.dart';
 import 'package:dagram_flutter/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -113,7 +114,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               backgroundColor: Colors.white,
                               textColor: Colors.black,
                               borderColor: Colors.grey,
-                              function: () {},
+                              function: () async {
+                                await FirestoreMethods()
+                                .followUser(FirebaseAuth.instance
+                                  .currentUser!.uid, 
+                                userData['uid'],
+                                );
+                              },
                             ): FollowButton(
                               text: 'Follow',
                               backgroundColor: Colors.blue,
