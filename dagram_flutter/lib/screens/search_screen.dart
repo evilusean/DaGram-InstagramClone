@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
         future: FirebaseFirestore.instance.collection('posts').get(),
         builder: (context, snapshot) {
         if(!snapshot.hasData) {
-          return const Center(child: const CircularProgressIndicator(),
+          return const Center(child: CircularProgressIndicator(),
           );
         }
         return StaggeredGridView.countBuilder(
