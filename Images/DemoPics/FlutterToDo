@@ -2,6 +2,14 @@
 -Create multiple NPC profiles to demo app-don't forget to add 'likes'
 -iOS files
 -demo search feature
+  [X] Feed Screen
+  [X] User Search
+  Comments
+  Follow/Unfollow
+  [X]Add a Photo
+  Gallery
+  Files List
+  [X]Responsive Design
 -demo like animation
 -ffmpeg record to gif
 -show responsive layout
