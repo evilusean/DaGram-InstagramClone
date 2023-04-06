@@ -1,7 +1,7 @@
--Add Images to NPSean Profile
--Create multiple NPC profiles to demo app-don't forget to add 'likes'
+[X]Add Images to NPSean Profile
+[X]Create multiple NPC profiles to demo app-don't forget to add 'likes'
 -iOS files
--demo search feature
+[X]demo search feature
   [X] Feed Screen
   [X] User Search
   [X]Comments
@@ -14,9 +14,9 @@
 -demo like animation
 -ffmpeg record to gif
 -show responsive layout
--create project display image
+[X]create project display image
 -do writeup
--packages/features
+-flutter packages/features
 -explain code(duplicate+comment?? vs brief summary vs picture+highlight)
 
 NP Sean
