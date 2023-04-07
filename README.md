@@ -22,6 +22,10 @@ After installing flutter you need to install all the dependancies to run the emu
 It took me almost a day and a half of work to figure out why the emulation did not initially work when testing my code, </br>
 Emulation works, requires haxm 7.6.5 NOT 7.8 to work with flutter/android studio emulation, requires a manual install to fix. </br>
 
+## Responsive Design(Works on HTML Web Browswers/Android/iOS):
+
+<img src="https://github.com/evilusean/DaGram-InstagramClone/blob/main/Images/DemoPics/FinalResponsive.jpg?raw=true" width="600">
+
 <p align="left">  
 <img src="https://raw.githubusercontent.com/evilusean/DaGram-InstagramClone/main/Images/DemoPics/FilesList.jpg"</left>  
 </p>
