@@ -1,3 +1,7 @@
+<p align="left">  
+<img src="https://github.com/evilusean/DaGram-InstagramClone/blob/main/Images/DaGram.jpg?raw=true"</left>  
+</p>
+
 # DaGram-InstagramClone
 
 I don't use social media, I make my own; ME-DIY-A. </br>
@@ -38,6 +42,10 @@ Since I've written over 1000 lines of code on this project, instead of going ove
   -firestore_metods.dart: Has 5 functions, create a post, delete a post, comment on posts, like posts, and follow/unfollow users. </br>
   -storage_methods.dart: Used to add images to firebase_storage uses a uuid(Unique identifier) to generate a code for later use. </br>
 -(Responsive): Contains all the files required for determining whether to use the web or mobile screen layout depending on pixels(600). </br>
+  -mobile_screen_layout.dart: contains all idiosyncracies for mobile layout.
+  -responsive_layout_screen.dart: contains function to determine which screen to use by getting user screen size.
+  -web_screen_layout.dart: contains all idiosyncracies for web layout like top navigation bar.
+-(Screens):Contains all the various screens the user can select.
 
 
 
