@@ -66,7 +66,7 @@ Since I've written over 1000 lines of code on this project, instead of going ove
   -text_field_input.dart: contains reusable code layout for text inputs, just replace parameters with what is needed. </br>
 Other notable files:</br>
 -(Android): contains build.gradle which is used for creating the Android app. </br>
--(Build): contains all external dependancies/packages such as firebase/image_picker
+-(Build): contains all external dependancies/packages such as firebase/image_picker </br>
 -(iOS): Contains iOS app, requires a mac with XCode to run simulation/emulator correctly. </br>
 -(Pubspec.yaml):Contains all flutter dependancies(cloud_firestore, firebase_auth, firebase_core, firebase_storage, flutter_svg, image_picker, uuid). </br>
 
