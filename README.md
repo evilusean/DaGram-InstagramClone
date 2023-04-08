@@ -57,8 +57,16 @@ Since I've written over 1000 lines of code on this project, instead of going ove
   -profile_screen.dart:contains the user profile and all their posts signout on users account, and follow/unfollow other users.</br>
   -search_screen.dart: allows you to search users on firebase, also has a grid layout of recent user posts. </br>
   -signup_screen.dart: where you are redirected/pushed after clicking 'Signup' on login screen. Requires a picture/username/email/PW/bio.</br>
-  
-
-
-
+-(Utils):Contains colors used for styling and global variables, as well as image_picker widget for selecting an image. </br>
+-(Widgets):Contains all custom reusable widgets used in app. </br>
+  -comment_card.dart: used for 'comments_screen', creates layout/styling for each individual comment, reusable. </br>
+  -follow_button.dart: used on profile page of another user to 'follow'. </br>
+  -like_animation.dart: used to like posts in the 'feed_screen' on either clicking like or double tapping photo. </br>
+  -post_card.dart: contains layout for each post by users, can redirect to the comment section of each post, also has likes and responsive layout. </br>
+  -text_field_input.dart: contains reusable code layout for text inputs, just replace parameters with what is needed. </br>
+Other notable files:</br>
+-(Android): contains build.gradle which is used for creating the Android app. </br>
+-(Build): contains all external dependancies/packages such as firebase/image_picker
+-(iOS): Contains iOS app, requires a mac with XCode to run simulation/emulator correctly. </br>
+-(Pubspec.yaml):Contains all flutter dependancies(cloud_firestore, firebase_auth, firebase_core, firebase_storage, flutter_svg, image_picker, uuid). </br>
 
